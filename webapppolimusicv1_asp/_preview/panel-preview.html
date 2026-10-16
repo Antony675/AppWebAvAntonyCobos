@@ -1,0 +1,791 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Administracion &mdash; PoliMusic</title>
+<link rel="stylesheet" href="css/polimusic.css">
+</head>
+<body>
+<div class="pm-app">
+
+    <aside class="pm-sidebar">
+        <nav class="pm-sidebar__block pm-sidebar__block--nav">
+            <a class="pm-logo" href="#" style="padding:10px 14px 16px;">
+                <span class="pm-logo__mark" style="width:34px;height:34px;">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:19px;height:19px;">
+                        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 3.2a1.1 1.1 0 0 1 1.1 1.1v5.6l3.4 2a1.1 1.1 0 1 1-1.1 1.9l-4-2.35a1.1 1.1 0 0 1-.5-.93V6.3A1.1 1.1 0 0 1 12 5.2Z"/>
+                    </svg>
+                </span>
+                <span class="pm-logo__text" style="font-size:19px;">Poli<span>Music</span></span>
+            </a>
+
+            <button class="pm-nav-link" data-vista="catalogo" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h5v-6h4v6h5V9.5"/></svg> Inicio</button>
+            <button class="pm-nav-link" data-vista="albumes" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.6"/></svg> Albumes</button>
+            <button class="pm-nav-link" data-vista="artistas" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Artistas</button>
+            <button class="pm-nav-link" data-vista="canciones" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg> Canciones</button>
+            <button class="pm-nav-link" data-vista="playlists" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h13M3 12h13M3 18h9"/><circle cx="18" cy="16" r="3"/><path d="M21 16V6l-6 1.6"/></svg> Playlists</button>
+            <a class="pm-nav-link" href="panel-preview.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6.5v5c0 5 3.4 8.6 8 9.5 4.6-.9 8-4.5 8-9.5v-5L12 3Z"/><path d="m9.5 12 1.8 1.8 3.4-3.4"/></svg> Panel de administracion</a>
+        </nav>
+
+        <div class="pm-sidebar__block pm-sidebar__block--list">
+            <div class="pm-sidebar__title"><span>Tu biblioteca</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4v16M9 4v16"/><path d="m14 5 5 15"/></svg></div>
+            <div class="pm-sidebar__scroll"><button class="pm-pl-item" type="button"><img class="pm-pl-item__img" src="resources/PlaylistImages/default.jpg" alt=""><span class="pm-pl-item__meta"><span class="pm-pl-item__name pm-truncate" style="display:block;">Playlist 1</span><span class="pm-pl-item__type">Privada &middot; 5 pistas</span></span></button><button class="pm-pl-item" type="button"><img class="pm-pl-item__img" src="resources/PlaylistImages/playlist1.png" alt=""><span class="pm-pl-item__meta"><span class="pm-pl-item__name pm-truncate" style="display:block;">Playlist 2</span><span class="pm-pl-item__type">Publica &middot; 4 pistas</span></span></button><button class="pm-pl-item" type="button"><img class="pm-pl-item__img" src="resources/PlaylistImages/playlist2.png" alt=""><span class="pm-pl-item__meta"><span class="pm-pl-item__name pm-truncate" style="display:block;">Playlist 3</span><span class="pm-pl-item__type">Publica &middot; 1 pistas</span></span></button><button class="pm-pl-item" type="button"><img class="pm-pl-item__img" src="resources/PlaylistImages/playlist3.png" alt=""><span class="pm-pl-item__meta"><span class="pm-pl-item__name pm-truncate" style="display:block;">Playlist 4</span><span class="pm-pl-item__type">Privada &middot; 2 pistas</span></span></button><button class="pm-pl-item" type="button"><img class="pm-pl-item__img" src="resources/PlaylistImages/playlist4.png" alt=""><span class="pm-pl-item__meta"><span class="pm-pl-item__name pm-truncate" style="display:block;">Playlist 5</span><span class="pm-pl-item__type">Publica &middot; 1 pistas</span></span></button></div>
+        </div>
+    </aside>
+
+    <main class="pm-main" id="pmMain">
+        <header class="pm-topbar" id="pmTopbar">
+            <div class="pm-topbar__left">
+                <div>
+                    <div class="pm-topbar__title" id="pmTopbarTitle">Administracion</div>
+                    <div class="pm-topbar__crumb" id="pmTopbarCrumb">Gestion del catalogo PoliMusic</div>
+                </div>
+            </div>
+            <div class="pm-search">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                <input type="search" id="pmSearchInput" placeholder="Buscar canciones, albumes o artistas" autocomplete="off">
+            </div>
+            <button class="pm-user-chip" id="pmUserChip" type="button">
+                <span class="pm-avatar"><img src="resources/UserImages/root.png" alt=""></span>
+                <span style="text-align:left;">
+                    <span class="pm-user-chip__name pm-truncate" style="display:block;">usersAdmin</span>
+                    <span class="pm-badge-admin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11Z"/><path d="m9 12 2 2 4-4"/></svg>Admin</span>
+                </span>
+            </button>
+            <div class="pm-menu pm-hidden" id="pmUserMenu" role="menu">
+                <div style="padding:12px 13px 10px;border-bottom:1px solid var(--pm-border);">
+                    <div style="display:flex;align-items:center;gap:11px;">
+                        <span class="pm-avatar">UA</span>
+                        <span><span style="display:block;font-size:13.5px;font-weight:700;">usersAdmin</span>
+                        <span style="display:block;font-size:11.5px;color:var(--pm-text-muted);">usrfakeadmin@epn.edu.ec</span></span>
+                    </div>
+                </div>
+                <a class="pm-menu__item" href="panel-preview.html" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6.5v5c0 5 3.4 8.6 8 9.5 4.6-.9 8-4.5 8-9.5v-5L12 3Z"/><path d="m9.5 12 1.8 1.8 3.4-3.4"/></svg> Panel de administracion</a>
+                <button class="pm-menu__item" type="button" data-vista="catalogo" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h5v-6h4v6h5V9.5"/></svg> Ir al catalogo</button>
+                <div class="pm-menu__sep"></div>
+                <a class="pm-menu__item" href="#" role="menuitem" style="color:var(--pm-danger);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/></svg> Cerrar sesion</a>
+            </div>
+        </header>
+        <div class="pm-content" id="pmAdminRootMarker">
+
+<div id="pmAdminRoot">
+    <div class="pm-admin-head">
+        <div>
+            <div class="pm-hero__kind">Consola de administracion</div>
+            <div class="pm-admin-head__title">Panel de control</div>
+            <div class="pm-admin-head__sub">Operaciones de lectura, actualizacion y eliminacion sobre las entidades del sistema.</div>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;"><div style="padding:12px 18px;background:var(--pm-bg-card);border:1px solid var(--pm-border);border-radius:var(--pm-radius-md);min-width:96px;"><div style="font-size:22px;font-weight:800;letter-spacing:-.02em;">3</div><div style="font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--pm-text-muted);">Usuarios</div></div><div style="padding:12px 18px;background:var(--pm-bg-card);border:1px solid var(--pm-border);border-radius:var(--pm-radius-md);min-width:96px;"><div style="font-size:22px;font-weight:800;letter-spacing:-.02em;">5</div><div style="font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--pm-text-muted);">Canciones</div></div><div style="padding:12px 18px;background:var(--pm-bg-card);border:1px solid var(--pm-border);border-radius:var(--pm-radius-md);min-width:96px;"><div style="font-size:22px;font-weight:800;letter-spacing:-.02em;">5</div><div style="font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--pm-text-muted);">Albumes</div></div><div style="padding:12px 18px;background:var(--pm-bg-card);border:1px solid var(--pm-border);border-radius:var(--pm-radius-md);min-width:96px;"><div style="font-size:22px;font-weight:800;letter-spacing:-.02em;">5</div><div style="font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--pm-text-muted);">Artistas</div></div><div style="padding:12px 18px;background:var(--pm-bg-card);border:1px solid var(--pm-border);border-radius:var(--pm-radius-md);min-width:96px;"><div style="font-size:22px;font-weight:800;letter-spacing:-.02em;">5</div><div style="font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--pm-text-muted);">Playlists</div></div></div>
+    </div>
+
+    <nav class="pm-tabs">
+        <button class="pm-tab is-active" type="button" data-panel="usuarios">Usuarios</button>
+        <button class="pm-tab" type="button" data-panel="canciones">Canciones</button>
+        <button class="pm-tab" type="button" data-panel="artistas">Artistas</button>
+        <button class="pm-tab" type="button" data-panel="albumes">Albumes</button>
+        <button class="pm-tab" type="button" data-panel="playlists">Playlists</button>
+        <button class="pm-tab" type="button" data-panel="catalogos">Catalogos</button>
+    </nav>
+
+    <section class="pm-panel is-active" id="panel-usuarios">
+        <div class="pm-toolbar">
+            <div class="pm-toolbar__count">Lectura de los 3 usuarios registrados. La actualizacion permite cambiar rol y datos de contacto.</div>
+            <div class="pm-toolbar__actions"><input class="pm-input--text" type="search" placeholder="Filtrar usuarios" data-filtro-tabla="tabla-usuarios" style="width:220px;"></div>
+        </div>
+        <div class="pm-table-wrap">
+            <table class="pm-table">
+                <thead><tr><th>ID</th><th>Usuario</th><th>Correo</th><th>Cumpleanos</th><th>Rol</th><th>Playlists</th><th>Acciones</th></tr></thead>
+                <tbody>
+                    <tr data-fila-tabla data-texto="AntonyCobos usrnormal@epn.edu.ec Estandar">
+                        <td class="pm-table__id">1</td>
+                        <td><div style="display:flex;align-items:center;gap:11px;">
+                            <img class="pm-table__mini" src="resources/UserImages/default.jpg" alt="">
+                            <span class="pm-strong">AntonyCobos</span></div></td>
+                        <td>usrnormal@epn.edu.ec</td>
+                        <td>2000-12-15</td>
+                        <td><span class="pm-card__tag" style="margin:0;">Estandar</span></td>
+                        <td>5</td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Actualizar usuario" data-editar
+                                    data-modal="modal-usuario" data-campos='{&quot;id&quot;: 1, &quot;username&quot;: &quot;AntonyCobos&quot;, &quot;email&quot;: &quot;usrnormal@epn.edu.ec&quot;, &quot;birthday&quot;: &quot;2000-12-15&quot;, &quot;user_type&quot;: 0, &quot;password&quot;: &quot;&quot;}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion del usuario &quot;AntonyCobos&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar usuario"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr>
+                    <tr data-fila-tabla data-texto="usersAdmin usrfakeadmin@epn.edu.ec Administrador">
+                        <td class="pm-table__id">2</td>
+                        <td><div style="display:flex;align-items:center;gap:11px;">
+                            <img class="pm-table__mini" src="resources/UserImages/root.png" alt="">
+                            <span class="pm-strong">usersAdmin</span></div></td>
+                        <td>usrfakeadmin@epn.edu.ec</td>
+                        <td>2001-12-16</td>
+                        <td><span class="pm-badge-admin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11Z"/><path d="m9 12 2 2 4-4"/></svg>Admin</span></td>
+                        <td>0</td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Actualizar usuario" data-editar
+                                    data-modal="modal-usuario" data-campos='{&quot;id&quot;: 2, &quot;username&quot;: &quot;usersAdmin&quot;, &quot;email&quot;: &quot;usrfakeadmin@epn.edu.ec&quot;, &quot;birthday&quot;: &quot;2001-12-16&quot;, &quot;user_type&quot;: 1, &quot;password&quot;: &quot;&quot;}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion del usuario &quot;usersAdmin&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar usuario"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr>
+                    <tr data-fila-tabla data-texto="username1 username1@epn.edu.ec Estandar">
+                        <td class="pm-table__id">3</td>
+                        <td><div style="display:flex;align-items:center;gap:11px;">
+                            <img class="pm-table__mini" src="resources/UserImages/default.jpg" alt="">
+                            <span class="pm-strong">username1</span></div></td>
+                        <td>username1@epn.edu.ec</td>
+                        <td>2002-02-02</td>
+                        <td><span class="pm-card__tag" style="margin:0;">Estandar</span></td>
+                        <td>0</td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Actualizar usuario" data-editar
+                                    data-modal="modal-usuario" data-campos='{&quot;id&quot;: 3, &quot;username&quot;: &quot;username1&quot;, &quot;email&quot;: &quot;username1@epn.edu.ec&quot;, &quot;birthday&quot;: &quot;2002-02-02&quot;, &quot;user_type&quot;: 0, &quot;password&quot;: &quot;&quot;}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion del usuario &quot;username1&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar usuario"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="pm-panel" id="panel-canciones">
+        <div class="pm-toolbar">
+            <div class="pm-toolbar__count">Catalogo de audio. La ruta debe apuntar a un archivo presente en <b>resources/SongFiles</b>.</div>
+            <div class="pm-toolbar__actions"><input class="pm-input--text" type="search" placeholder="Filtrar canciones" data-filtro-tabla="tabla-canciones" style="width:220px;"></div>
+        </div>
+        <div class="pm-table-wrap">
+            <table class="pm-table">
+                <thead><tr><th>ID</th><th>Nombre</th><th>Ruta del archivo</th><th>Artista</th><th>Album</th><th>Reproducciones</th><th>Acciones</th></tr></thead>
+                <tbody>
+                    <tr data-fila-tabla data-texto="Adventure Juan Gabriel">
+                        <td class="pm-table__id">1</td>
+                        <td><span class="pm-strong">Adventure</span></td>
+                        <td style="font-family:Consolas,monospace;font-size:12px;">~/songFiles/bensound-adventure.mp3</td>
+                        <td>Juan Gabriel</td>
+                        <td>Rock Album</td>
+                        <td>0</td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Previsualizar audio"
+                                    data-play-context="admin" data-play-uid="1" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></button>
+                            <button class="pm-ico-btn" type="button" title="Actualizar cancion" data-editar
+                                    data-modal="modal-cancion" data-campos='{&quot;id&quot;: 1, &quot;song_name&quot;: &quot;Adventure&quot;, &quot;song_path&quot;: &quot;~/songFiles/bensound-adventure.mp3&quot;, &quot;plays&quot;: 0}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion de la cancion &quot;Adventure&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar cancion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr>
+                    <tr data-fila-tabla data-texto="Dreams Juan Gabriel">
+                        <td class="pm-table__id">2</td>
+                        <td><span class="pm-strong">Dreams</span></td>
+                        <td style="font-family:Consolas,monospace;font-size:12px;">~/songFiles/bensound-adventure.mp3</td>
+                        <td>Juan Gabriel</td>
+                        <td>Rock Album</td>
+                        <td>1</td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Previsualizar audio"
+                                    data-play-context="admin" data-play-uid="2" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></button>
+                            <button class="pm-ico-btn" type="button" title="Actualizar cancion" data-editar
+                                    data-modal="modal-cancion" data-campos='{&quot;id&quot;: 2, &quot;song_name&quot;: &quot;Dreams&quot;, &quot;song_path&quot;: &quot;~/songFiles/bensound-adventure.mp3&quot;, &quot;plays&quot;: 1}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion de la cancion &quot;Dreams&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar cancion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr>
+                    <tr data-fila-tabla data-texto="Energy Juan Gabriel">
+                        <td class="pm-table__id">3</td>
+                        <td><span class="pm-strong">Energy</span></td>
+                        <td style="font-family:Consolas,monospace;font-size:12px;">~/songFiles/bensound-adventure.mp3</td>
+                        <td>Juan Gabriel</td>
+                        <td>Rock Album</td>
+                        <td>2</td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Previsualizar audio"
+                                    data-play-context="admin" data-play-uid="3" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></button>
+                            <button class="pm-ico-btn" type="button" title="Actualizar cancion" data-editar
+                                    data-modal="modal-cancion" data-campos='{&quot;id&quot;: 3, &quot;song_name&quot;: &quot;Energy&quot;, &quot;song_path&quot;: &quot;~/songFiles/bensound-adventure.mp3&quot;, &quot;plays&quot;: 2}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion de la cancion &quot;Energy&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar cancion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr>
+                    <tr data-fila-tabla data-texto="Scifi Juan Gabriel">
+                        <td class="pm-table__id">4</td>
+                        <td><span class="pm-strong">Scifi</span></td>
+                        <td style="font-family:Consolas,monospace;font-size:12px;">~/songFiles/bensound-adventure.mp3</td>
+                        <td>Juan Gabriel</td>
+                        <td>Rock Album</td>
+                        <td>3</td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Previsualizar audio"
+                                    data-play-context="admin" data-play-uid="4" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></button>
+                            <button class="pm-ico-btn" type="button" title="Actualizar cancion" data-editar
+                                    data-modal="modal-cancion" data-campos='{&quot;id&quot;: 4, &quot;song_name&quot;: &quot;Scifi&quot;, &quot;song_path&quot;: &quot;~/songFiles/bensound-adventure.mp3&quot;, &quot;plays&quot;: 3}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion de la cancion &quot;Scifi&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar cancion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr>
+                    <tr data-fila-tabla data-texto="Tomorrow Juan Gabriel">
+                        <td class="pm-table__id">5</td>
+                        <td><span class="pm-strong">Tomorrow</span></td>
+                        <td style="font-family:Consolas,monospace;font-size:12px;">~/songFiles/bensound-adventure.mp3</td>
+                        <td>Juan Gabriel</td>
+                        <td>Rock Album</td>
+                        <td>4</td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Previsualizar audio"
+                                    data-play-context="admin" data-play-uid="5" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></button>
+                            <button class="pm-ico-btn" type="button" title="Actualizar cancion" data-editar
+                                    data-modal="modal-cancion" data-campos='{&quot;id&quot;: 5, &quot;song_name&quot;: &quot;Tomorrow&quot;, &quot;song_path&quot;: &quot;~/songFiles/bensound-adventure.mp3&quot;, &quot;plays&quot;: 4}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion de la cancion &quot;Tomorrow&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar cancion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="pm-panel" id="panel-artistas">
+        <div class="pm-toolbar">
+            <div class="pm-toolbar__count">Interpretes del catalogo. La imagen debe existir en <b>resources/ArtistImages</b>.</div>
+            <div class="pm-toolbar__actions"><input class="pm-input--text" type="search" placeholder="Filtrar artistas" data-filtro-tabla="tabla-artistas" style="width:220px;"></div>
+        </div>
+        <div class="pm-table-wrap">
+            <table class="pm-table">
+                <thead><tr><th>ID</th><th>Artista</th><th>Imagen</th><th>Canciones</th><th>Acciones</th></tr></thead>
+                <tbody>
+                    <tr data-fila-tabla data-texto="Juan Gabriel">
+                        <td class="pm-table__id">1</td>
+                        <td><span class="pm-strong">Juan Gabriel</span></td>
+                        <td><div style="display:flex;align-items:center;gap:11px;">
+                            <img class="pm-table__mini" style="border-radius:50%;" src="resources/ArtistImages/artist1.jpg" alt="">
+                            <span style="font-family:Consolas,monospace;font-size:11.5px;">~/ArtistImages/artist1.jpg</span></div></td>
+                        <td>5</td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Actualizar artista" data-editar
+                                    data-modal="modal-artista" data-campos='{&quot;id&quot;: 1, &quot;artist_name&quot;: &quot;Juan&quot;, &quot;artist_lastname&quot;: &quot;Gabriel&quot;, &quot;artist_image&quot;: &quot;~/ArtistImages/artist1.jpg&quot;}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion del artista &quot;Juan Gabriel&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar artista"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr>
+                    <tr data-fila-tabla data-texto="Ana Gabriel">
+                        <td class="pm-table__id">2</td>
+                        <td><span class="pm-strong">Ana Gabriel</span></td>
+                        <td><div style="display:flex;align-items:center;gap:11px;">
+                            <img class="pm-table__mini" style="border-radius:50%;" src="resources/ArtistImages/artist2.jpg" alt="">
+                            <span style="font-family:Consolas,monospace;font-size:11.5px;">~/ArtistImages/artist2.jpg</span></div></td>
+                        <td>2</td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Actualizar artista" data-editar
+                                    data-modal="modal-artista" data-campos='{&quot;id&quot;: 2, &quot;artist_name&quot;: &quot;Ana&quot;, &quot;artist_lastname&quot;: &quot;Gabriel&quot;, &quot;artist_image&quot;: &quot;~/ArtistImages/artist2.jpg&quot;}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion del artista &quot;Ana Gabriel&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar artista"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr>
+                    <tr data-fila-tabla data-texto="Mariah Carey">
+                        <td class="pm-table__id">3</td>
+                        <td><span class="pm-strong">Mariah Carey</span></td>
+                        <td><div style="display:flex;align-items:center;gap:11px;">
+                            <img class="pm-table__mini" style="border-radius:50%;" src="resources/ArtistImages/artist3.jpg" alt="">
+                            <span style="font-family:Consolas,monospace;font-size:11.5px;">~/ArtistImages/artist3.jpg</span></div></td>
+                        <td>1</td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Actualizar artista" data-editar
+                                    data-modal="modal-artista" data-campos='{&quot;id&quot;: 3, &quot;artist_name&quot;: &quot;Mariah&quot;, &quot;artist_lastname&quot;: &quot;Carey&quot;, &quot;artist_image&quot;: &quot;~/ArtistImages/artist3.jpg&quot;}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion del artista &quot;Mariah Carey&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar artista"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr>
+                    <tr data-fila-tabla data-texto="Elvis Presley">
+                        <td class="pm-table__id">4</td>
+                        <td><span class="pm-strong">Elvis Presley</span></td>
+                        <td><div style="display:flex;align-items:center;gap:11px;">
+                            <img class="pm-table__mini" style="border-radius:50%;" src="resources/ArtistImages/artist4.jpg" alt="">
+                            <span style="font-family:Consolas,monospace;font-size:11.5px;">~/ArtistImages/artist4.jpg</span></div></td>
+                        <td>1</td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Actualizar artista" data-editar
+                                    data-modal="modal-artista" data-campos='{&quot;id&quot;: 4, &quot;artist_name&quot;: &quot;Elvis&quot;, &quot;artist_lastname&quot;: &quot;Presley&quot;, &quot;artist_image&quot;: &quot;~/ArtistImages/artist4.jpg&quot;}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion del artista &quot;Elvis Presley&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar artista"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr>
+                    <tr data-fila-tabla data-texto="Edward Sheeran">
+                        <td class="pm-table__id">5</td>
+                        <td><span class="pm-strong">Edward Sheeran</span></td>
+                        <td><div style="display:flex;align-items:center;gap:11px;">
+                            <img class="pm-table__mini" style="border-radius:50%;" src="resources/ArtistImages/artist5.jpg" alt="">
+                            <span style="font-family:Consolas,monospace;font-size:11.5px;">~/ArtistImages/artist5.jpg</span></div></td>
+                        <td>1</td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Actualizar artista" data-editar
+                                    data-modal="modal-artista" data-campos='{&quot;id&quot;: 5, &quot;artist_name&quot;: &quot;Edward&quot;, &quot;artist_lastname&quot;: &quot;Sheeran&quot;, &quot;artist_image&quot;: &quot;~/ArtistImages/artist5.jpg&quot;}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion del artista &quot;Edward Sheeran&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar artista"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="pm-panel" id="panel-albumes">
+        <div class="pm-toolbar">
+            <div class="pm-toolbar__count">Colecciones del catalogo. La caratula debe existir en <b>resources/AlbumImages</b>.</div>
+            <div class="pm-toolbar__actions"><input class="pm-input--text" type="search" placeholder="Filtrar albumes" data-filtro-tabla="tabla-albumes" style="width:220px;"></div>
+        </div>
+        <div class="pm-table-wrap">
+            <table class="pm-table">
+                <thead><tr><th>ID</th><th>Titulo</th><th>Caratula</th><th>Anio</th><th>Pistas</th><th>Acciones</th></tr></thead>
+                <tbody>
+                    <tr data-fila-tabla data-texto="Rock Album 1976">
+                        <td class="pm-table__id">1</td>
+                        <td><span class="pm-strong">Rock Album</span></td>
+                        <td><div style="display:flex;align-items:center;gap:11px;">
+                            <img class="pm-table__mini" src="resources/AlbumImages/album1.png" alt="">
+                            <span style="font-family:Consolas,monospace;font-size:11.5px;">~/albumImages/album1.png</span></div></td>
+                        <td>1976</td>
+                        <td>5</td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Actualizar album" data-editar
+                                    data-modal="modal-album" data-campos='{&quot;id&quot;: 1, &quot;title_album&quot;: &quot;Rock Album&quot;, &quot;release_year&quot;: 1976, &quot;album_image_path&quot;: &quot;~/albumImages/album1.png&quot;}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion del album &quot;Rock Album&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar album"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr>
+                    <tr data-fila-tabla data-texto="Relax Music 2000">
+                        <td class="pm-table__id">2</td>
+                        <td><span class="pm-strong">Relax Music</span></td>
+                        <td><div style="display:flex;align-items:center;gap:11px;">
+                            <img class="pm-table__mini" src="resources/AlbumImages/album2.png" alt="">
+                            <span style="font-family:Consolas,monospace;font-size:11.5px;">~/albumImages/album2.png</span></div></td>
+                        <td>2000</td>
+                        <td>3</td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Actualizar album" data-editar
+                                    data-modal="modal-album" data-campos='{&quot;id&quot;: 2, &quot;title_album&quot;: &quot;Relax Music&quot;, &quot;release_year&quot;: 2000, &quot;album_image_path&quot;: &quot;~/albumImages/album2.png&quot;}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion del album &quot;Relax Music&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar album"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr>
+                    <tr data-fila-tabla data-texto="Retro Album Music 1980">
+                        <td class="pm-table__id">3</td>
+                        <td><span class="pm-strong">Retro Album Music</span></td>
+                        <td><div style="display:flex;align-items:center;gap:11px;">
+                            <img class="pm-table__mini" src="resources/AlbumImages/album3.png" alt="">
+                            <span style="font-family:Consolas,monospace;font-size:11.5px;">~/albumImages/album3.png</span></div></td>
+                        <td>1980</td>
+                        <td>3</td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Actualizar album" data-editar
+                                    data-modal="modal-album" data-campos='{&quot;id&quot;: 3, &quot;title_album&quot;: &quot;Retro Album Music&quot;, &quot;release_year&quot;: 1980, &quot;album_image_path&quot;: &quot;~/albumImages/album3.png&quot;}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion del album &quot;Retro Album Music&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar album"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr>
+                    <tr data-fila-tabla data-texto="Classic Album 1950">
+                        <td class="pm-table__id">4</td>
+                        <td><span class="pm-strong">Classic Album</span></td>
+                        <td><div style="display:flex;align-items:center;gap:11px;">
+                            <img class="pm-table__mini" src="resources/AlbumImages/album4.png" alt="">
+                            <span style="font-family:Consolas,monospace;font-size:11.5px;">~/albumImages/album4.png</span></div></td>
+                        <td>1950</td>
+                        <td>2</td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Actualizar album" data-editar
+                                    data-modal="modal-album" data-campos='{&quot;id&quot;: 4, &quot;title_album&quot;: &quot;Classic Album&quot;, &quot;release_year&quot;: 1950, &quot;album_image_path&quot;: &quot;~/albumImages/album4.png&quot;}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion del album &quot;Classic Album&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar album"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr>
+                    <tr data-fila-tabla data-texto="Country Album 1990">
+                        <td class="pm-table__id">5</td>
+                        <td><span class="pm-strong">Country Album</span></td>
+                        <td><div style="display:flex;align-items:center;gap:11px;">
+                            <img class="pm-table__mini" src="resources/AlbumImages/album5.png" alt="">
+                            <span style="font-family:Consolas,monospace;font-size:11.5px;">~/albumImages/album5.png</span></div></td>
+                        <td>1990</td>
+                        <td>2</td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Actualizar album" data-editar
+                                    data-modal="modal-album" data-campos='{&quot;id&quot;: 5, &quot;title_album&quot;: &quot;Country Album&quot;, &quot;release_year&quot;: 1990, &quot;album_image_path&quot;: &quot;~/albumImages/album5.png&quot;}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion del album &quot;Country Album&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar album"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="pm-panel" id="panel-playlists">
+        <div class="pm-toolbar">
+            <div class="pm-toolbar__count">Vista completa del catalogo de playlists de todos los usuarios.</div>
+            <div class="pm-toolbar__actions"><input class="pm-input--text" type="search" placeholder="Filtrar playlists" data-filtro-tabla="tabla-playlists" style="width:220px;"></div>
+        </div>
+        <div class="pm-table-wrap">
+            <table class="pm-table">
+                <thead><tr><th>ID</th><th>Titulo</th><th>Propietario</th><th>Tipo</th><th>Creada</th><th>Pistas</th><th>Acciones</th></tr></thead>
+                <tbody>
+                    <tr data-fila-tabla data-texto="Playlist 1 AntonyCobos Privada">
+                        <td class="pm-table__id">1</td>
+                        <td><div style="display:flex;align-items:center;gap:11px;">
+                            <img class="pm-table__mini" src="resources/PlaylistImages/default.jpg" alt="">
+                            <span class="pm-strong">Playlist 1</span></div></td>
+                        <td>AntonyCobos</td>
+                        <td><span class="pm-card__tag" style="margin:0;background:rgba(255,164,43,.16);color:#ffa42b;">Privada</span></td>
+                        <td>6202-21-21</td>
+                        <td>5</td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Actualizar playlist" data-editar
+                                    data-modal="modal-playlist" data-campos='{&quot;id&quot;: 1, &quot;title&quot;: &quot;Playlist 1&quot;, &quot;id_user&quot;: 1, &quot;type&quot;: 1, &quot;photo&quot;: &quot;~/playlistImages/default.jpg&quot;, &quot;creation_date&quot;: &quot;6202-21-21&quot;}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion de la playlist &quot;Playlist 1&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar playlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr>
+                    <tr data-fila-tabla data-texto="Playlist 2 AntonyCobos Publica">
+                        <td class="pm-table__id">2</td>
+                        <td><div style="display:flex;align-items:center;gap:11px;">
+                            <img class="pm-table__mini" src="resources/PlaylistImages/playlist1.png" alt="">
+                            <span class="pm-strong">Playlist 2</span></div></td>
+                        <td>AntonyCobos</td>
+                        <td><span class="pm-card__tag" style="margin:0;">Publica</span></td>
+                        <td>6202-21-31</td>
+                        <td>4</td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Actualizar playlist" data-editar
+                                    data-modal="modal-playlist" data-campos='{&quot;id&quot;: 2, &quot;title&quot;: &quot;Playlist 2&quot;, &quot;id_user&quot;: 1, &quot;type&quot;: 0, &quot;photo&quot;: &quot;~/playlistImages/playlist1.png&quot;, &quot;creation_date&quot;: &quot;6202-21-31&quot;}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion de la playlist &quot;Playlist 2&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar playlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr>
+                    <tr data-fila-tabla data-texto="Playlist 3 AntonyCobos Publica">
+                        <td class="pm-table__id">3</td>
+                        <td><div style="display:flex;align-items:center;gap:11px;">
+                            <img class="pm-table__mini" src="resources/PlaylistImages/playlist2.png" alt="">
+                            <span class="pm-strong">Playlist 3</span></div></td>
+                        <td>AntonyCobos</td>
+                        <td><span class="pm-card__tag" style="margin:0;">Publica</span></td>
+                        <td>6202-21-41</td>
+                        <td>1</td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Actualizar playlist" data-editar
+                                    data-modal="modal-playlist" data-campos='{&quot;id&quot;: 3, &quot;title&quot;: &quot;Playlist 3&quot;, &quot;id_user&quot;: 1, &quot;type&quot;: 0, &quot;photo&quot;: &quot;~/playlistImages/playlist2.png&quot;, &quot;creation_date&quot;: &quot;6202-21-41&quot;}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion de la playlist &quot;Playlist 3&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar playlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr>
+                    <tr data-fila-tabla data-texto="Playlist 4 AntonyCobos Privada">
+                        <td class="pm-table__id">4</td>
+                        <td><div style="display:flex;align-items:center;gap:11px;">
+                            <img class="pm-table__mini" src="resources/PlaylistImages/playlist3.png" alt="">
+                            <span class="pm-strong">Playlist 4</span></div></td>
+                        <td>AntonyCobos</td>
+                        <td><span class="pm-card__tag" style="margin:0;background:rgba(255,164,43,.16);color:#ffa42b;">Privada</span></td>
+                        <td>6202-21-51</td>
+                        <td>2</td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Actualizar playlist" data-editar
+                                    data-modal="modal-playlist" data-campos='{&quot;id&quot;: 4, &quot;title&quot;: &quot;Playlist 4&quot;, &quot;id_user&quot;: 1, &quot;type&quot;: 1, &quot;photo&quot;: &quot;~/playlistImages/playlist3.png&quot;, &quot;creation_date&quot;: &quot;6202-21-51&quot;}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion de la playlist &quot;Playlist 4&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar playlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr>
+                    <tr data-fila-tabla data-texto="Playlist 5 AntonyCobos Publica">
+                        <td class="pm-table__id">5</td>
+                        <td><div style="display:flex;align-items:center;gap:11px;">
+                            <img class="pm-table__mini" src="resources/PlaylistImages/playlist4.png" alt="">
+                            <span class="pm-strong">Playlist 5</span></div></td>
+                        <td>AntonyCobos</td>
+                        <td><span class="pm-card__tag" style="margin:0;">Publica</span></td>
+                        <td>6202-21-61</td>
+                        <td>1</td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Actualizar playlist" data-editar
+                                    data-modal="modal-playlist" data-campos='{&quot;id&quot;: 5, &quot;title&quot;: &quot;Playlist 5&quot;, &quot;id_user&quot;: 1, &quot;type&quot;: 0, &quot;photo&quot;: &quot;~/playlistImages/playlist4.png&quot;, &quot;creation_date&quot;: &quot;6202-21-61&quot;}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion de la playlist &quot;Playlist 5&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar playlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="pm-panel" id="panel-catalogos">
+        <div class="pm-toolbar">
+            <div class="pm-toolbar__count">Tabla maestra de valores parametricos (tipos de usuario y de playlist).</div>
+            <div class="pm-toolbar__actions"><input class="pm-input--text" type="search" placeholder="Filtrar catalogos" data-filtro-tabla="tabla-catalogos" style="width:220px;"></div>
+        </div>
+        <div class="pm-table-wrap">
+            <table class="pm-table">
+                <thead><tr><th>ID</th><th>Codigo padre</th><th>Codigo</th><th>Valor</th><th>Acciones</th></tr></thead>
+                <tbody>
+                    <tr data-fila-tabla data-texto=" 1 USER TYPE">
+                        <td class="pm-table__id">1</td>
+                        <td style="font-family:Consolas,monospace;"></td>
+                        <td style="font-family:Consolas,monospace;">1</td>
+                        <td><span class="pm-strong">USER TYPE</span></td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Actualizar entrada" data-editar
+                                    data-modal="modal-catalogo" data-campos='{&quot;id&quot;: 1, &quot;cod_catalog_parent&quot;: &quot;&quot;, &quot;cod_catalog&quot;: &quot;1&quot;, &quot;value&quot;: &quot;USER TYPE&quot;}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion de la entrada &quot;USER TYPE&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar entrada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr>
+                    <tr data-fila-tabla data-texto="1 0 USER">
+                        <td class="pm-table__id">2</td>
+                        <td style="font-family:Consolas,monospace;">1</td>
+                        <td style="font-family:Consolas,monospace;">0</td>
+                        <td><span class="pm-strong">USER</span></td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Actualizar entrada" data-editar
+                                    data-modal="modal-catalogo" data-campos='{&quot;id&quot;: 2, &quot;cod_catalog_parent&quot;: &quot;1&quot;, &quot;cod_catalog&quot;: &quot;0&quot;, &quot;value&quot;: &quot;USER&quot;}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion de la entrada &quot;USER&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar entrada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr>
+                    <tr data-fila-tabla data-texto="1 1 ADMIN">
+                        <td class="pm-table__id">3</td>
+                        <td style="font-family:Consolas,monospace;">1</td>
+                        <td style="font-family:Consolas,monospace;">1</td>
+                        <td><span class="pm-strong">ADMIN</span></td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Actualizar entrada" data-editar
+                                    data-modal="modal-catalogo" data-campos='{&quot;id&quot;: 3, &quot;cod_catalog_parent&quot;: &quot;1&quot;, &quot;cod_catalog&quot;: &quot;1&quot;, &quot;value&quot;: &quot;ADMIN&quot;}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion de la entrada &quot;ADMIN&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar entrada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr>
+                    <tr data-fila-tabla data-texto=" 2 PLAYLIST TYPE">
+                        <td class="pm-table__id">4</td>
+                        <td style="font-family:Consolas,monospace;"></td>
+                        <td style="font-family:Consolas,monospace;">2</td>
+                        <td><span class="pm-strong">PLAYLIST TYPE</span></td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Actualizar entrada" data-editar
+                                    data-modal="modal-catalogo" data-campos='{&quot;id&quot;: 4, &quot;cod_catalog_parent&quot;: &quot;&quot;, &quot;cod_catalog&quot;: &quot;2&quot;, &quot;value&quot;: &quot;PLAYLIST TYPE&quot;}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion de la entrada &quot;PLAYLIST TYPE&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar entrada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr>
+                    <tr data-fila-tabla data-texto="2 0 Public">
+                        <td class="pm-table__id">5</td>
+                        <td style="font-family:Consolas,monospace;">2</td>
+                        <td style="font-family:Consolas,monospace;">0</td>
+                        <td><span class="pm-strong">Public</span></td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Actualizar entrada" data-editar
+                                    data-modal="modal-catalogo" data-campos='{&quot;id&quot;: 5, &quot;cod_catalog_parent&quot;: &quot;2&quot;, &quot;cod_catalog&quot;: &quot;0&quot;, &quot;value&quot;: &quot;Public&quot;}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion de la entrada &quot;Public&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar entrada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr>
+                    <tr data-fila-tabla data-texto="2 1 Private">
+                        <td class="pm-table__id">6</td>
+                        <td style="font-family:Consolas,monospace;">2</td>
+                        <td style="font-family:Consolas,monospace;">1</td>
+                        <td><span class="pm-strong">Private</span></td>
+                        <td><div class="pm-table__actions">
+                            <button class="pm-ico-btn" type="button" title="Actualizar entrada" data-editar
+                                    data-modal="modal-catalogo" data-campos='{&quot;id&quot;: 6, &quot;cod_catalog_parent&quot;: &quot;2&quot;, &quot;cod_catalog&quot;: &quot;1&quot;, &quot;value&quot;: &quot;Private&quot;}'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5Z"/></svg></button>
+                            <form method="post" action="#" style="display:inline;" data-confirmar-envio="Confirma la eliminacion de la entrada &quot;Private&quot;?">
+                                <button class="pm-ico-btn pm-ico-btn--danger" type="submit" title="Eliminar entrada"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"/><path d="M8 6V4h8v2"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg></button>
+                            </form>
+                        </div></td>
+                    </tr></tbody>
+            </table>
+        </div>
+    </section>
+</div>
+
+<div class="pm-modal-backdrop" id="modal-usuario" role="dialog" aria-modal="true">
+    <div class="pm-modal">
+        <div class="pm-modal__head">
+            <div class="pm-modal__title">Actualizar usuario</div>
+            <button class="pm-ico-btn" type="button" data-cerrar-modal="modal-usuario" title="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        </div>
+        <form method="post" action="#">
+            <div class="pm-modal__body"><div class="pm-form-grid">
+                <input type="hidden" name="id" value="">
+                <div><label class="pm-field__label" for="u-username">Nombre de usuario</label><input class="pm-input--text" id="u-username" name="username" type="text"></div><div><label class="pm-field__label" for="u-email">Correo electronico</label><input class="pm-input--text" id="u-email" name="email" type="email"></div><div><label class="pm-field__label" for="u-birthday">Fecha de nacimiento</label><input class="pm-input--text" id="u-birthday" name="birthday" type="date"></div><div><label class="pm-field__label" for="u-rol">Rol</label><select class="pm-input--text" id="u-rol" name="user_type"><option value="0">Estandar</option><option value="1">Administrador</option></select></div><div><label class="pm-field__label" for="u-password">Contrasena (vacio = sin cambios)</label><input class="pm-input--text" id="u-password" name="password" type="text" placeholder="Sin cambios"></div>
+            </div></div>
+            <div class="pm-modal__foot">
+                <button class="pm-btn pm-btn--ghost pm-btn--sm" type="button" data-cerrar-modal="modal-usuario">Cancelar</button>
+                <button class="pm-btn pm-btn--primary pm-btn--sm" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Guardar cambios</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="pm-modal-backdrop" id="modal-cancion" role="dialog" aria-modal="true">
+    <div class="pm-modal">
+        <div class="pm-modal__head">
+            <div class="pm-modal__title">Actualizar cancion</div>
+            <button class="pm-ico-btn" type="button" data-cerrar-modal="modal-cancion" title="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        </div>
+        <form method="post" action="#">
+            <div class="pm-modal__body"><div class="pm-form-grid">
+                <input type="hidden" name="id" value="">
+                <div><label class="pm-field__label" for="c-nombre">Nombre de la cancion</label><input class="pm-input--text" id="c-nombre" name="song_name" type="text"></div><div><label class="pm-field__label" for="c-ruta">Ruta del archivo de audio</label><input class="pm-input--text" id="c-ruta" name="song_path" type="text" placeholder="~/songFiles/archivo.mp3"></div><div><label class="pm-field__label" for="c-plays">Reproducciones acumuladas</label><input class="pm-input--text" id="c-plays" name="plays" type="number"></div>
+            </div></div>
+            <div class="pm-modal__foot">
+                <button class="pm-btn pm-btn--ghost pm-btn--sm" type="button" data-cerrar-modal="modal-cancion">Cancelar</button>
+                <button class="pm-btn pm-btn--primary pm-btn--sm" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Guardar cambios</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="pm-modal-backdrop" id="modal-artista" role="dialog" aria-modal="true">
+    <div class="pm-modal">
+        <div class="pm-modal__head">
+            <div class="pm-modal__title">Actualizar artista</div>
+            <button class="pm-ico-btn" type="button" data-cerrar-modal="modal-artista" title="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        </div>
+        <form method="post" action="#">
+            <div class="pm-modal__body"><div class="pm-form-grid">
+                <input type="hidden" name="id" value="">
+                <div><label class="pm-field__label" for="a-nombre">Nombre</label><input class="pm-input--text" id="a-nombre" name="artist_name" type="text"></div><div><label class="pm-field__label" for="a-apellido">Apellido</label><input class="pm-input--text" id="a-apellido" name="artist_lastname" type="text"></div><div><label class="pm-field__label" for="a-imagen">Ruta de la imagen</label><input class="pm-input--text" id="a-imagen" name="artist_image" type="text" placeholder="~/ArtistImages/artist1.jpg"></div>
+            </div></div>
+            <div class="pm-modal__foot">
+                <button class="pm-btn pm-btn--ghost pm-btn--sm" type="button" data-cerrar-modal="modal-artista">Cancelar</button>
+                <button class="pm-btn pm-btn--primary pm-btn--sm" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Guardar cambios</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="pm-modal-backdrop" id="modal-album" role="dialog" aria-modal="true">
+    <div class="pm-modal">
+        <div class="pm-modal__head">
+            <div class="pm-modal__title">Actualizar album</div>
+            <button class="pm-ico-btn" type="button" data-cerrar-modal="modal-album" title="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        </div>
+        <form method="post" action="#">
+            <div class="pm-modal__body"><div class="pm-form-grid">
+                <input type="hidden" name="id" value="">
+                <div><label class="pm-field__label" for="l-titulo">Titulo del album</label><input class="pm-input--text" id="l-titulo" name="title_album" type="text"></div><div><label class="pm-field__label" for="l-anio">Anio de publicacion</label><input class="pm-input--text" id="l-anio" name="release_year" type="number"></div><div><label class="pm-field__label" for="l-imagen">Ruta de la caratula</label><input class="pm-input--text" id="l-imagen" name="album_image_path" type="text" placeholder="~/albumImages/album1.png"></div>
+            </div></div>
+            <div class="pm-modal__foot">
+                <button class="pm-btn pm-btn--ghost pm-btn--sm" type="button" data-cerrar-modal="modal-album">Cancelar</button>
+                <button class="pm-btn pm-btn--primary pm-btn--sm" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Guardar cambios</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="pm-modal-backdrop" id="modal-playlist" role="dialog" aria-modal="true">
+    <div class="pm-modal">
+        <div class="pm-modal__head">
+            <div class="pm-modal__title">Actualizar playlist</div>
+            <button class="pm-ico-btn" type="button" data-cerrar-modal="modal-playlist" title="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        </div>
+        <form method="post" action="#">
+            <div class="pm-modal__body"><div class="pm-form-grid">
+                <input type="hidden" name="id" value="">
+                <div><label class="pm-field__label" for="p-titulo">Titulo</label><input class="pm-input--text" id="p-titulo" name="title" type="text"></div><div><label class="pm-field__label" for="p-propietario">Propietario</label><select class="pm-input--text" id="p-propietario" name="id_user"><option value="1">AntonyCobos</option><option value="2">usersAdmin</option><option value="3">username1</option></select></div><div><label class="pm-field__label" for="p-tipo">Visibilidad</label><select class="pm-input--text" id="p-tipo" name="type"><option value="0">Publica</option><option value="1">Privada</option></select></div><div><label class="pm-field__label" for="p-fecha">Fecha de creacion</label><input class="pm-input--text" id="p-fecha" name="creation_date" type="date"></div><div><label class="pm-field__label" for="p-foto">Ruta de la portada</label><input class="pm-input--text" id="p-foto" name="photo" type="text" placeholder="~/playlistImages/playlist1.png"></div>
+            </div></div>
+            <div class="pm-modal__foot">
+                <button class="pm-btn pm-btn--ghost pm-btn--sm" type="button" data-cerrar-modal="modal-playlist">Cancelar</button>
+                <button class="pm-btn pm-btn--primary pm-btn--sm" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Guardar cambios</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="pm-modal-backdrop" id="modal-catalogo" role="dialog" aria-modal="true">
+    <div class="pm-modal pm-modal--sm">
+        <div class="pm-modal__head">
+            <div class="pm-modal__title">Actualizar entrada de catalogo</div>
+            <button class="pm-ico-btn" type="button" data-cerrar-modal="modal-catalogo" title="Cerrar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        </div>
+        <form method="post" action="#">
+            <div class="pm-modal__body"><div class="pm-form-grid">
+                <input type="hidden" name="id" value="">
+                <div><label class="pm-field__label" for="k-padre">Codigo padre</label><input class="pm-input--text" id="k-padre" name="cod_catalog_parent" type="text"></div><div><label class="pm-field__label" for="k-codigo">Codigo</label><input class="pm-input--text" id="k-codigo" name="cod_catalog" type="text"></div><div><label class="pm-field__label" for="k-valor">Valor</label><input class="pm-input--text" id="k-valor" name="value" type="text"></div>
+            </div></div>
+            <div class="pm-modal__foot">
+                <button class="pm-btn pm-btn--ghost pm-btn--sm" type="button" data-cerrar-modal="modal-catalogo">Cancelar</button>
+                <button class="pm-btn pm-btn--primary pm-btn--sm" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg> Guardar cambios</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+        </div>
+    </main>
+
+    <footer class="pm-player" id="pmPlayer">
+        <div class="pm-now">
+            <div class="pm-now__art">
+                <img id="pmNowArt" src="resources/AlbumImages/album1.png" alt="Sin reproduccion">
+                <div class="pm-eq" aria-hidden="true">
+                    <span class="pm-eq__bar"></span><span class="pm-eq__bar"></span><span class="pm-eq__bar"></span>
+                    <span class="pm-eq__bar"></span><span class="pm-eq__bar"></span>
+                </div>
+            </div>
+            <div class="pm-now__text">
+                <div class="pm-now__title" id="pmNowTitle">Sin reproduccion</div>
+                <div class="pm-now__artist" id="pmNowArtist">Seleccione una pista del catalogo</div>
+            </div>
+        </div>
+
+        <div class="pm-controls">
+            <div class="pm-controls__row">
+                <button class="pm-ctrl pm-ctrl--sm pm-ctrl--relative" id="pmBtnShuffle" type="button" title="Reproduccion aleatoria"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5"/><path d="M4 20 21 3"/><path d="M21 16v5h-5"/><path d="m15 15 6 6"/><path d="M4 4l5 5"/></svg></button>
+                <button class="pm-ctrl" id="pmBtnPrev" type="button" title="Pista anterior"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 5v14L8 12l11-7Z" fill="currentColor" stroke="none"/><path d="M5 5v14"/></svg></button>
+                <button class="pm-ctrl pm-ctrl--play" id="pmBtnPlay" type="button" title="Reproducir / Pausar">
+                    <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                </button>
+                <button class="pm-ctrl" id="pmBtnNext" type="button" title="Pista siguiente"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 5v14l11-7L5 5Z" fill="currentColor" stroke="none"/><path d="M19 5v14"/></svg></button>
+                <button class="pm-ctrl pm-ctrl--sm pm-ctrl--relative" id="pmBtnRepeat" type="button" title="Activar repeticion">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="pm-progress">
+                <span class="pm-time" id="pmTimeActual">0:00</span>
+                <div class="pm-range" id="pmProgressRange" role="slider" tabindex="0" data-value="0">
+                    <div class="pm-range__track"><div class="pm-range__fill"></div><div class="pm-range__thumb"></div></div>
+                </div>
+                <span class="pm-time" id="pmTimeTotal">0:00</span>
+            </div>
+        </div>
+
+        <div class="pm-extras">
+            <button class="pm-ctrl" id="pmBtnMute" type="button" title="Silenciar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg></button>
+            <div class="pm-volume">
+                <div class="pm-range" id="pmVolumeRange" role="slider" tabindex="0" data-value="0.8">
+                    <div class="pm-range__track"><div class="pm-range__fill"></div><div class="pm-range__thumb"></div></div>
+                </div>
+            </div>
+        </div>
+        <audio id="pmAudio" preload="metadata"></audio>
+    </footer>
+</div>
+
+<div class="pm-toast-host" id="pmToastHost" aria-live="polite"></div>
+<script src="js/polimusic.js"></script>
+
+</body>
+</html>

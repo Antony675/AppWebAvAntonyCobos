@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PoliMusic &mdash; Iniciar sesion</title>
+<link rel="stylesheet" href="css/polimusic.css">
+</head>
+<body>
+<main class="pm-login">
+    <div class="pm-login__bubbles" aria-hidden="true">
+        <span class="pm-login__bubble pm-login__bubble--1"></span>
+        <span class="pm-login__bubble pm-login__bubble--2"></span>
+        <span class="pm-login__bubble pm-login__bubble--3"></span>
+    </div>
+    <div class="pm-login__shell">
+        <section class="pm-login__brand">
+            <div>
+                <div class="pm-logo">
+                    <span class="pm-logo__mark">
+                        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 3.2a1.1 1.1 0 0 1 1.1 1.1v5.6l3.4 2a1.1 1.1 0 1 1-1.1 1.9l-4-2.35a1.1 1.1 0 0 1-.5-.93V6.3A1.1 1.1 0 0 1 12 5.2Z"/>
+                        </svg>
+                    </span>
+                    <span class="pm-logo__text">Poli<span>Music</span></span>
+                </div>
+                <div class="pm-login__headline">
+                    <h1>Tu musica.<br>Sin distracciones.</h1>
+                    <p>Un catalogo minimalista para escuchar, explorar y organizar tu coleccion favorita.</p>
+                </div>
+            </div>
+            <div class="pm-login__features">
+                <div class="pm-login__feature"><span class="pm-login__feature-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span>
+                    <span><b>Reproductor integrado</b> con audio en streaming local</span></div>
+                <div class="pm-login__feature"><span class="pm-login__feature-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.6"/></svg></span>
+                    <span><b>Galeria visual</b> de albumes, artistas y playlists</span></div>
+                <div class="pm-login__feature"><span class="pm-login__feature-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+                    <span><b>Control por roles</b> para administracion segura</span></div>
+            </div>
+            <p class="pm-login__copy">Escuela Politecnica Nacional &middot; Aplicaciones Web Avanzadas</p>
+        </section>
+
+        <section class="pm-login__panel">
+            <h2>Iniciar sesion</h2>
+            <p class="pm-login__panel-sub">Accede con tu cuenta de PoliMusic para continuar.</p>
+
+            <div class="pm-alert pm-alert--info" role="status">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-5M12 8h.01"/></svg>
+                <span>Vista previa estatica. En el servidor, este formulario valida las credenciales contra BDD_PoliMusic.</span>
+            </div>
+
+            <form method="post" action="#" onsubmit="return false;">
+                <div class="pm-field">
+                    <label class="pm-field__label" for="usuario">Usuario</label>
+                    <div class="pm-field__control">
+                        <span class="pm-field__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+                        <input class="pm-input" type="text" id="usuario" name="usuario" placeholder="Nombre de usuario" value="usersAdmin">
+                    </div>
+                </div>
+                <div class="pm-field">
+                    <label class="pm-field__label" for="clave">Contrasena</label>
+                    <div class="pm-field__control">
+                        <span class="pm-field__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+                        </span>
+                        <input class="pm-input" type="password" id="clave" name="clave" placeholder="Contrasena" value="12345678">
+                        <button class="pm-btn-toggle" type="button" id="btnToggleClave" title="Mostrar contrasena">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                        </button>
+                    </div>
+                </div>
+                <label class="pm-check">
+                    <input type="checkbox" checked>
+                    <span class="pm-check__box"></span>
+                    <span>Mantener la sesion iniciada</span>
+                </label>
+                <a class="pm-btn pm-btn--primary pm-btn--block" href="dashboard-preview.html" style="text-decoration:none;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/></svg> Ingresar a PoliMusic
+                </a>
+            </form>
+
+            <div class="pm-login__hint">
+                <div class="pm-login__hint-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 16v-5M12 8h.01"/></svg> Cuentas de prueba &mdash; clic para autocompletar</div>
+                <div class="pm-login__hint-grid">
+                    <button type="button" class="pm-cred pm-cred--admin" data-user="usersAdmin" data-pass="12345678">
+                        <span class="pm-cred__dot"></span>
+                        <span class="pm-cred__meta"><span class="pm-cred__role">Administrador</span>
+                        <span class="pm-cred__user">usersAdmin</span></span>
+                    </button>
+                    <button type="button" class="pm-cred pm-cred--std" data-user="AntonyCobos" data-pass="12345678">
+                        <span class="pm-cred__dot"></span>
+                        <span class="pm-cred__meta"><span class="pm-cred__role">Estandar</span>
+                        <span class="pm-cred__user">AntonyCobos</span></span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+<script>
+(function () {
+    var btn = document.getElementById('btnToggleClave'), pwd = document.getElementById('clave');
+    if (btn && pwd) btn.addEventListener('click', function () {
+        pwd.type = pwd.type === 'text' ? 'password' : 'text';
+    });
+    var bs = document.querySelectorAll('.pm-cred');
+    for (var i = 0; i < bs.length; i++) bs[i].addEventListener('click', function () {
+        document.getElementById('usuario').value = this.getAttribute('data-user');
+        document.getElementById('clave').value = this.getAttribute('data-pass');
+    });
+})();
+</script>
+</body>
+</html>

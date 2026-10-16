@@ -1,0 +1,754 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inicio &mdash; PoliMusic</title>
+<link rel="stylesheet" href="css/polimusic.css">
+</head>
+<body>
+<div class="pm-app">
+
+    <aside class="pm-sidebar">
+        <nav class="pm-sidebar__block pm-sidebar__block--nav">
+            <a class="pm-logo" href="#" style="padding:10px 14px 16px;">
+                <span class="pm-logo__mark" style="width:34px;height:34px;">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:19px;height:19px;">
+                        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 3.2a1.1 1.1 0 0 1 1.1 1.1v5.6l3.4 2a1.1 1.1 0 1 1-1.1 1.9l-4-2.35a1.1 1.1 0 0 1-.5-.93V6.3A1.1 1.1 0 0 1 12 5.2Z"/>
+                    </svg>
+                </span>
+                <span class="pm-logo__text" style="font-size:19px;">Poli<span>Music</span></span>
+            </a>
+
+            <button class="pm-nav-link" data-vista="catalogo" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h5v-6h4v6h5V9.5"/></svg> Inicio</button>
+            <button class="pm-nav-link" data-vista="albumes" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.6"/></svg> Albumes</button>
+            <button class="pm-nav-link" data-vista="artistas" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Artistas</button>
+            <button class="pm-nav-link" data-vista="canciones" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg> Canciones</button>
+            <button class="pm-nav-link" data-vista="playlists" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h13M3 12h13M3 18h9"/><circle cx="18" cy="16" r="3"/><path d="M21 16V6l-6 1.6"/></svg> Playlists</button>
+            <a class="pm-nav-link" href="panel-preview.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6.5v5c0 5 3.4 8.6 8 9.5 4.6-.9 8-4.5 8-9.5v-5L12 3Z"/><path d="m9.5 12 1.8 1.8 3.4-3.4"/></svg> Panel de administracion</a>
+        </nav>
+
+        <div class="pm-sidebar__block pm-sidebar__block--list">
+            <div class="pm-sidebar__title"><span>Tu biblioteca</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4v16M9 4v16"/><path d="m14 5 5 15"/></svg></div>
+            <div class="pm-sidebar__scroll"><button class="pm-pl-item" type="button"><img class="pm-pl-item__img" src="resources/PlaylistImages/default.jpg" alt=""><span class="pm-pl-item__meta"><span class="pm-pl-item__name pm-truncate" style="display:block;">Playlist 1</span><span class="pm-pl-item__type">Privada &middot; 5 pistas</span></span></button><button class="pm-pl-item" type="button"><img class="pm-pl-item__img" src="resources/PlaylistImages/playlist1.png" alt=""><span class="pm-pl-item__meta"><span class="pm-pl-item__name pm-truncate" style="display:block;">Playlist 2</span><span class="pm-pl-item__type">Publica &middot; 4 pistas</span></span></button><button class="pm-pl-item" type="button"><img class="pm-pl-item__img" src="resources/PlaylistImages/playlist2.png" alt=""><span class="pm-pl-item__meta"><span class="pm-pl-item__name pm-truncate" style="display:block;">Playlist 3</span><span class="pm-pl-item__type">Publica &middot; 1 pistas</span></span></button><button class="pm-pl-item" type="button"><img class="pm-pl-item__img" src="resources/PlaylistImages/playlist3.png" alt=""><span class="pm-pl-item__meta"><span class="pm-pl-item__name pm-truncate" style="display:block;">Playlist 4</span><span class="pm-pl-item__type">Privada &middot; 2 pistas</span></span></button><button class="pm-pl-item" type="button"><img class="pm-pl-item__img" src="resources/PlaylistImages/playlist4.png" alt=""><span class="pm-pl-item__meta"><span class="pm-pl-item__name pm-truncate" style="display:block;">Playlist 5</span><span class="pm-pl-item__type">Publica &middot; 1 pistas</span></span></button></div>
+        </div>
+    </aside>
+
+    <main class="pm-main" id="pmMain">
+        <header class="pm-topbar" id="pmTopbar">
+            <div class="pm-topbar__left">
+                <div>
+                    <div class="pm-topbar__title" id="pmTopbarTitle">Inicio</div>
+                    <div class="pm-topbar__crumb" id="pmTopbarCrumb">Tu catalogo musical</div>
+                </div>
+            </div>
+            <div class="pm-search">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                <input type="search" id="pmSearchInput" placeholder="Buscar canciones, albumes o artistas" autocomplete="off">
+            </div>
+            <button class="pm-user-chip" id="pmUserChip" type="button">
+                <span class="pm-avatar"><img src="resources/UserImages/root.png" alt=""></span>
+                <span style="text-align:left;">
+                    <span class="pm-user-chip__name pm-truncate" style="display:block;">usersAdmin</span>
+                    <span class="pm-badge-admin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11Z"/><path d="m9 12 2 2 4-4"/></svg>Admin</span>
+                </span>
+            </button>
+            <div class="pm-menu pm-hidden" id="pmUserMenu" role="menu">
+                <div style="padding:12px 13px 10px;border-bottom:1px solid var(--pm-border);">
+                    <div style="display:flex;align-items:center;gap:11px;">
+                        <span class="pm-avatar">UA</span>
+                        <span><span style="display:block;font-size:13.5px;font-weight:700;">usersAdmin</span>
+                        <span style="display:block;font-size:11.5px;color:var(--pm-text-muted);">usrfakeadmin@epn.edu.ec</span></span>
+                    </div>
+                </div>
+                <a class="pm-menu__item" href="panel-preview.html" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6.5v5c0 5 3.4 8.6 8 9.5 4.6-.9 8-4.5 8-9.5v-5L12 3Z"/><path d="m9.5 12 1.8 1.8 3.4-3.4"/></svg> Panel de administracion</a>
+                <button class="pm-menu__item" type="button" data-vista="catalogo" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h5v-6h4v6h5V9.5"/></svg> Ir al catalogo</button>
+                <div class="pm-menu__sep"></div>
+                <a class="pm-menu__item" href="#" role="menuitem" style="color:var(--pm-danger);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/></svg> Cerrar sesion</a>
+            </div>
+        </header>
+        <div class="pm-content" id="pmAdminRootMarker">
+
+<section class="pm-vista" id="vista-catalogo" data-titulo="Inicio" data-subtitulo="Tu catalogo musical">
+    <div class="pm-hero" style="grid-template-columns:1fr;padding-bottom:10px;">
+        <div>
+            <div class="pm-hero__kind">Sesion de administrador</div>
+            <h1 class="pm-hero__title" style="font-size:clamp(28px,4vw,46px);">Hola, usersAdmin</h1>
+            <div class="pm-hero__meta"><span>Explora tu coleccion, reproduce tus pistas favoritas y descubre nuevo contenido.</span></div>
+        </div>
+    </div>
+
+    <div id="pmBusquedaBloque">
+        <section class="pm-section">
+            <div class="pm-section__head">
+                <div><div class="pm-section__title">Albumes destacados</div>
+                <div class="pm-section__sub">Colecciones listas para escuchar</div></div>
+                <button class="pm-section__link" type="button" data-vista="albumes">Ver todo</button>
+            </div>
+            <div class="pm-grid" data-filtrable>
+                <article class="pm-card" data-texto="Rock Album Juan Gabriel 1976">
+                    <div class="pm-card__art">
+                        <img src="resources/AlbumImages/album1.png" alt="Portada de Rock Album" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="album" data-play-uid="1" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Rock Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Rock Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Rock Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Rock Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Rock Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Rock Album</div>
+                    <div class="pm-card__meta">5 pistas &middot; 1976</div>
+                    <span class="pm-card__tag">Album</span>
+                </article>
+                <article class="pm-card" data-texto="Relax Music Ana Gabriel 2000">
+                    <div class="pm-card__art">
+                        <img src="resources/AlbumImages/album2.png" alt="Portada de Relax Music" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="album" data-play-uid="2" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Relax Music&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album2.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Relax Music&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album2.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Relax Music&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album2.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Relax Music&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album2.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Relax Music&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album2.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Relax Music</div>
+                    <div class="pm-card__meta">3 pistas &middot; 2000</div>
+                    <span class="pm-card__tag">Album</span>
+                </article>
+                <article class="pm-card" data-texto="Retro Album Music Mariah Carey 1980">
+                    <div class="pm-card__art">
+                        <img src="resources/AlbumImages/album3.png" alt="Portada de Retro Album Music" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="album" data-play-uid="3" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Retro Album Music&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album3.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Retro Album Music&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album3.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Retro Album Music&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album3.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Retro Album Music&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album3.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Retro Album Music&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album3.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Retro Album Music</div>
+                    <div class="pm-card__meta">3 pistas &middot; 1980</div>
+                    <span class="pm-card__tag">Album</span>
+                </article>
+                <article class="pm-card" data-texto="Classic Album Elvis Presley 1950">
+                    <div class="pm-card__art">
+                        <img src="resources/AlbumImages/album4.png" alt="Portada de Classic Album" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="album" data-play-uid="4" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Classic Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album4.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Classic Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album4.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Classic Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album4.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Classic Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album4.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Classic Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album4.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Classic Album</div>
+                    <div class="pm-card__meta">2 pistas &middot; 1950</div>
+                    <span class="pm-card__tag">Album</span>
+                </article>
+                <article class="pm-card" data-texto="Country Album Edward Sheeran 1990">
+                    <div class="pm-card__art">
+                        <img src="resources/AlbumImages/album5.png" alt="Portada de Country Album" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="album" data-play-uid="5" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Country Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album5.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Country Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album5.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Country Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album5.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Country Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album5.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Country Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album5.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Country Album</div>
+                    <div class="pm-card__meta">2 pistas &middot; 1990</div>
+                    <span class="pm-card__tag">Album</span>
+                </article></div>
+        </section>
+
+        <section class="pm-section">
+            <div class="pm-section__head">
+                <div><div class="pm-section__title">Artistas</div>
+                <div class="pm-section__sub">Voces y autores de tu biblioteca</div></div>
+                <button class="pm-section__link" type="button" data-vista="artistas">Ver todo</button>
+            </div>
+            <div class="pm-grid" data-filtrable>
+                <article class="pm-card" data-texto="Juan Gabriel">
+                    <div class="pm-card__art pm-card__art--round">
+                        <img src="resources/ArtistImages/artist1.jpg" alt="Juan Gabriel" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="artista" data-play-uid="1" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Juan Gabriel</div>
+                    <div class="pm-card__meta">5 canciones</div>
+                    <span class="pm-card__tag">Artista</span>
+                </article>
+                <article class="pm-card" data-texto="Ana Gabriel">
+                    <div class="pm-card__art pm-card__art--round">
+                        <img src="resources/ArtistImages/artist2.jpg" alt="Ana Gabriel" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="artista" data-play-uid="2" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Ana Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Ana Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Ana Gabriel</div>
+                    <div class="pm-card__meta">2 canciones</div>
+                    <span class="pm-card__tag">Artista</span>
+                </article>
+                <article class="pm-card" data-texto="Mariah Carey">
+                    <div class="pm-card__art pm-card__art--round">
+                        <img src="resources/ArtistImages/artist3.jpg" alt="Mariah Carey" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="artista" data-play-uid="3" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Mariah Carey&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Mariah Carey</div>
+                    <div class="pm-card__meta">1 canciones</div>
+                    <span class="pm-card__tag">Artista</span>
+                </article>
+                <article class="pm-card" data-texto="Elvis Presley">
+                    <div class="pm-card__art pm-card__art--round">
+                        <img src="resources/ArtistImages/artist4.jpg" alt="Elvis Presley" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="artista" data-play-uid="4" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Elvis Presley&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Elvis Presley</div>
+                    <div class="pm-card__meta">1 canciones</div>
+                    <span class="pm-card__tag">Artista</span>
+                </article>
+                <article class="pm-card" data-texto="Edward Sheeran">
+                    <div class="pm-card__art pm-card__art--round">
+                        <img src="resources/ArtistImages/artist5.jpg" alt="Edward Sheeran" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="artista" data-play-uid="5" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Edward Sheeran&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Edward Sheeran</div>
+                    <div class="pm-card__meta">1 canciones</div>
+                    <span class="pm-card__tag">Artista</span>
+                </article></div>
+        </section>
+
+        <section class="pm-section">
+            <div class="pm-section__head">
+                <div><div class="pm-section__title">Lo mas escuchado</div>
+                <div class="pm-section__sub">Las pistas con mayor numero de reproducciones</div></div>
+                <button class="pm-section__link" type="button" data-vista="canciones">Ver todo</button>
+            </div>
+            <div class="pm-tracklist">
+                <div class="pm-tracklist__head">
+                    <span>#</span><span>Titulo</span><span>Artista</span><span>Album</span><span>Reproducciones</span><span></span>
+                </div>
+                <div class="pm-track" data-fila-busqueda data-texto="Adventure Juan Gabriel">
+                    <div class="pm-track__idx">
+                        <span class="pm-track__num">1</span>
+                        <span class="pm-track__play-ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span>
+                    </div>
+                    <div class="pm-track__main" data-play-uid="1" data-play-context="catalogo" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                        <img class="pm-track__art" src="resources/AlbumImages/album1.png" alt="">
+                        <span class="pm-track__text">
+                            <span class="pm-track__name">Adventure</span>
+                            <span class="pm-track__artist">Juan Gabriel</span>
+                        </span>
+                    </div>
+                    <div class="pm-track__album">Rock Album</div>
+                    <div class="pm-track__album pm-hidden">Rock Album</div>
+                    <div class="pm-track__plays">0</div>
+                    <div class="pm-track__actions">
+                        <button class="pm-ico-btn" type="button" title="Favoritos"
+                                onclick="PoliMusic.notificar('Pista agregada a tus favoritos.','ok');"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5 4.6 13A4 4 0 0 1 12 7.4 4 4 0 0 1 19.4 13L12 20.5Z"/></svg></button>
+                    </div>
+                </div>
+                <div class="pm-track" data-fila-busqueda data-texto="Dreams Juan Gabriel">
+                    <div class="pm-track__idx">
+                        <span class="pm-track__num">2</span>
+                        <span class="pm-track__play-ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span>
+                    </div>
+                    <div class="pm-track__main" data-play-uid="2" data-play-context="catalogo" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                        <img class="pm-track__art" src="resources/AlbumImages/album2.png" alt="">
+                        <span class="pm-track__text">
+                            <span class="pm-track__name">Dreams</span>
+                            <span class="pm-track__artist">Juan Gabriel</span>
+                        </span>
+                    </div>
+                    <div class="pm-track__album">Rock Album</div>
+                    <div class="pm-track__album pm-hidden">Rock Album</div>
+                    <div class="pm-track__plays">1</div>
+                    <div class="pm-track__actions">
+                        <button class="pm-ico-btn" type="button" title="Favoritos"
+                                onclick="PoliMusic.notificar('Pista agregada a tus favoritos.','ok');"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5 4.6 13A4 4 0 0 1 12 7.4 4 4 0 0 1 19.4 13L12 20.5Z"/></svg></button>
+                    </div>
+                </div>
+                <div class="pm-track" data-fila-busqueda data-texto="Energy Juan Gabriel">
+                    <div class="pm-track__idx">
+                        <span class="pm-track__num">3</span>
+                        <span class="pm-track__play-ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span>
+                    </div>
+                    <div class="pm-track__main" data-play-uid="3" data-play-context="catalogo" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                        <img class="pm-track__art" src="resources/AlbumImages/album3.png" alt="">
+                        <span class="pm-track__text">
+                            <span class="pm-track__name">Energy</span>
+                            <span class="pm-track__artist">Juan Gabriel</span>
+                        </span>
+                    </div>
+                    <div class="pm-track__album">Rock Album</div>
+                    <div class="pm-track__album pm-hidden">Rock Album</div>
+                    <div class="pm-track__plays">2</div>
+                    <div class="pm-track__actions">
+                        <button class="pm-ico-btn" type="button" title="Favoritos"
+                                onclick="PoliMusic.notificar('Pista agregada a tus favoritos.','ok');"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5 4.6 13A4 4 0 0 1 12 7.4 4 4 0 0 1 19.4 13L12 20.5Z"/></svg></button>
+                    </div>
+                </div>
+                <div class="pm-track" data-fila-busqueda data-texto="Scifi Juan Gabriel">
+                    <div class="pm-track__idx">
+                        <span class="pm-track__num">4</span>
+                        <span class="pm-track__play-ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span>
+                    </div>
+                    <div class="pm-track__main" data-play-uid="4" data-play-context="catalogo" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                        <img class="pm-track__art" src="resources/AlbumImages/album4.png" alt="">
+                        <span class="pm-track__text">
+                            <span class="pm-track__name">Scifi</span>
+                            <span class="pm-track__artist">Juan Gabriel</span>
+                        </span>
+                    </div>
+                    <div class="pm-track__album">Rock Album</div>
+                    <div class="pm-track__album pm-hidden">Rock Album</div>
+                    <div class="pm-track__plays">3</div>
+                    <div class="pm-track__actions">
+                        <button class="pm-ico-btn" type="button" title="Favoritos"
+                                onclick="PoliMusic.notificar('Pista agregada a tus favoritos.','ok');"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5 4.6 13A4 4 0 0 1 12 7.4 4 4 0 0 1 19.4 13L12 20.5Z"/></svg></button>
+                    </div>
+                </div>
+                <div class="pm-track" data-fila-busqueda data-texto="Tomorrow Juan Gabriel">
+                    <div class="pm-track__idx">
+                        <span class="pm-track__num">5</span>
+                        <span class="pm-track__play-ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span>
+                    </div>
+                    <div class="pm-track__main" data-play-uid="5" data-play-context="catalogo" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                        <img class="pm-track__art" src="resources/AlbumImages/album5.png" alt="">
+                        <span class="pm-track__text">
+                            <span class="pm-track__name">Tomorrow</span>
+                            <span class="pm-track__artist">Juan Gabriel</span>
+                        </span>
+                    </div>
+                    <div class="pm-track__album">Rock Album</div>
+                    <div class="pm-track__album pm-hidden">Rock Album</div>
+                    <div class="pm-track__plays">4</div>
+                    <div class="pm-track__actions">
+                        <button class="pm-ico-btn" type="button" title="Favoritos"
+                                onclick="PoliMusic.notificar('Pista agregada a tus favoritos.','ok');"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5 4.6 13A4 4 0 0 1 12 7.4 4 4 0 0 1 19.4 13L12 20.5Z"/></svg></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pm-section">
+            <div class="pm-section__head">
+                <div><div class="pm-section__title">Playlists</div>
+                <div class="pm-section__sub">Selecciones curadas para cada momento</div></div>
+                <button class="pm-section__link" type="button" data-vista="playlists">Ver todo</button>
+            </div>
+            <div class="pm-grid" data-filtrable>
+                <article class="pm-card" data-texto="Playlist 1 Privada">
+                    <div class="pm-card__art">
+                        <img src="resources/PlaylistImages/default.jpg" alt="Playlist 1" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="playlist" data-play-uid="1" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;PoliMusic&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;PoliMusic&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;PoliMusic&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;PoliMusic&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;PoliMusic&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Playlist 1</div>
+                    <div class="pm-card__meta">5 pistas &middot; Privada<br>Creada el 12/12/2026</div>
+                    <span class="pm-card__tag">Playlist</span>
+                </article>
+                <article class="pm-card" data-texto="Playlist 2 Publica">
+                    <div class="pm-card__art">
+                        <img src="resources/PlaylistImages/playlist1.png" alt="Playlist 2" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="playlist" data-play-uid="2" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;PoliMusic&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;PoliMusic&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;PoliMusic&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;PoliMusic&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Playlist 2</div>
+                    <div class="pm-card__meta">4 pistas &middot; Publica<br>Creada el 13/12/2026</div>
+                    <span class="pm-card__tag">Playlist</span>
+                </article>
+                <article class="pm-card" data-texto="Playlist 3 Publica">
+                    <div class="pm-card__art">
+                        <img src="resources/PlaylistImages/playlist2.png" alt="Playlist 3" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="playlist" data-play-uid="3" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;PoliMusic&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Playlist 3</div>
+                    <div class="pm-card__meta">1 pistas &middot; Publica<br>Creada el 14/12/2026</div>
+                    <span class="pm-card__tag">Playlist</span>
+                </article>
+                <article class="pm-card" data-texto="Playlist 4 Privada">
+                    <div class="pm-card__art">
+                        <img src="resources/PlaylistImages/playlist3.png" alt="Playlist 4" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="playlist" data-play-uid="4" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;PoliMusic&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;PoliMusic&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Playlist 4</div>
+                    <div class="pm-card__meta">2 pistas &middot; Privada<br>Creada el 15/12/2026</div>
+                    <span class="pm-card__tag">Playlist</span>
+                </article>
+                <article class="pm-card" data-texto="Playlist 5 Publica">
+                    <div class="pm-card__art">
+                        <img src="resources/PlaylistImages/playlist4.png" alt="Playlist 5" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="playlist" data-play-uid="5" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;PoliMusic&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Playlist 5</div>
+                    <div class="pm-card__meta">1 pistas &middot; Publica<br>Creada el 16/12/2026</div>
+                    <span class="pm-card__tag">Playlist</span>
+                </article></div>
+        </section>
+        <p class="pm-empty-mini pm-hidden" id="pmSearchCount"></p>
+    </div>
+</section>
+
+<section class="pm-vista pm-hidden" id="vista-albumes" data-titulo="Albumes" data-subtitulo="Explora las colecciones completas">
+    <div class="pm-section">
+        <div class="pm-section__head"><div><div class="pm-section__title">Todos los albumes</div>
+        <div class="pm-section__sub">5 albumes en el catalogo</div></div></div>
+        <div class="pm-grid pm-grid--wide">
+                <article class="pm-card" data-texto="Rock Album Juan Gabriel 1976">
+                    <div class="pm-card__art">
+                        <img src="resources/AlbumImages/album1.png" alt="Portada de Rock Album" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="album" data-play-uid="1" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Rock Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Rock Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Rock Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Rock Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Rock Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Rock Album</div>
+                    <div class="pm-card__meta">5 pistas &middot; 1976</div>
+                    <span class="pm-card__tag">Album</span>
+                </article>
+                <article class="pm-card" data-texto="Relax Music Ana Gabriel 2000">
+                    <div class="pm-card__art">
+                        <img src="resources/AlbumImages/album2.png" alt="Portada de Relax Music" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="album" data-play-uid="2" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Relax Music&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album2.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Relax Music&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album2.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Relax Music&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album2.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Relax Music&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album2.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Relax Music&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album2.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Relax Music</div>
+                    <div class="pm-card__meta">3 pistas &middot; 2000</div>
+                    <span class="pm-card__tag">Album</span>
+                </article>
+                <article class="pm-card" data-texto="Retro Album Music Mariah Carey 1980">
+                    <div class="pm-card__art">
+                        <img src="resources/AlbumImages/album3.png" alt="Portada de Retro Album Music" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="album" data-play-uid="3" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Retro Album Music&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album3.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Retro Album Music&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album3.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Retro Album Music&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album3.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Retro Album Music&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album3.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Retro Album Music&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album3.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Retro Album Music</div>
+                    <div class="pm-card__meta">3 pistas &middot; 1980</div>
+                    <span class="pm-card__tag">Album</span>
+                </article>
+                <article class="pm-card" data-texto="Classic Album Elvis Presley 1950">
+                    <div class="pm-card__art">
+                        <img src="resources/AlbumImages/album4.png" alt="Portada de Classic Album" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="album" data-play-uid="4" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Classic Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album4.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Classic Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album4.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Classic Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album4.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Classic Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album4.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Classic Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album4.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Classic Album</div>
+                    <div class="pm-card__meta">2 pistas &middot; 1950</div>
+                    <span class="pm-card__tag">Album</span>
+                </article>
+                <article class="pm-card" data-texto="Country Album Edward Sheeran 1990">
+                    <div class="pm-card__art">
+                        <img src="resources/AlbumImages/album5.png" alt="Portada de Country Album" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="album" data-play-uid="5" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Country Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album5.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Country Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album5.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Country Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album5.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Country Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album5.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;Country Album&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album5.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Country Album</div>
+                    <div class="pm-card__meta">2 pistas &middot; 1990</div>
+                    <span class="pm-card__tag">Album</span>
+                </article></div>
+    </div>
+</section>
+
+<section class="pm-vista pm-hidden" id="vista-artistas" data-titulo="Artistas" data-subtitulo="Descubre a los interpretes">
+    <div class="pm-section">
+        <div class="pm-section__head"><div><div class="pm-section__title">Todos los artistas</div>
+        <div class="pm-section__sub">5 artistas registrados</div></div></div>
+        <div class="pm-grid">
+                <article class="pm-card" data-texto="Juan Gabriel">
+                    <div class="pm-card__art pm-card__art--round">
+                        <img src="resources/ArtistImages/artist1.jpg" alt="Juan Gabriel" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="artista" data-play-uid="1" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Juan Gabriel</div>
+                    <div class="pm-card__meta">5 canciones</div>
+                    <span class="pm-card__tag">Artista</span>
+                </article>
+                <article class="pm-card" data-texto="Ana Gabriel">
+                    <div class="pm-card__art pm-card__art--round">
+                        <img src="resources/ArtistImages/artist2.jpg" alt="Ana Gabriel" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="artista" data-play-uid="2" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Ana Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Ana Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Ana Gabriel</div>
+                    <div class="pm-card__meta">2 canciones</div>
+                    <span class="pm-card__tag">Artista</span>
+                </article>
+                <article class="pm-card" data-texto="Mariah Carey">
+                    <div class="pm-card__art pm-card__art--round">
+                        <img src="resources/ArtistImages/artist3.jpg" alt="Mariah Carey" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="artista" data-play-uid="3" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Mariah Carey&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Mariah Carey</div>
+                    <div class="pm-card__meta">1 canciones</div>
+                    <span class="pm-card__tag">Artista</span>
+                </article>
+                <article class="pm-card" data-texto="Elvis Presley">
+                    <div class="pm-card__art pm-card__art--round">
+                        <img src="resources/ArtistImages/artist4.jpg" alt="Elvis Presley" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="artista" data-play-uid="4" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Elvis Presley&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Elvis Presley</div>
+                    <div class="pm-card__meta">1 canciones</div>
+                    <span class="pm-card__tag">Artista</span>
+                </article>
+                <article class="pm-card" data-texto="Edward Sheeran">
+                    <div class="pm-card__art pm-card__art--round">
+                        <img src="resources/ArtistImages/artist5.jpg" alt="Edward Sheeran" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="artista" data-play-uid="5" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Edward Sheeran&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Edward Sheeran</div>
+                    <div class="pm-card__meta">1 canciones</div>
+                    <span class="pm-card__tag">Artista</span>
+                </article></div>
+    </div>
+</section>
+
+<section class="pm-vista pm-hidden" id="vista-canciones" data-titulo="Canciones" data-subtitulo="Todo el catalogo de audio">
+    <div class="pm-section">
+        <div class="pm-section__head">
+            <div><div class="pm-section__title">Catalogo de canciones</div>
+            <div class="pm-section__sub">5 pistas disponibles</div></div>
+            <button class="pm-btn pm-btn--primary pm-btn--sm" type="button" data-play-context="catalogo" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg> Reproducir todo
+            </button>
+        </div>
+            <div class="pm-tracklist">
+                <div class="pm-tracklist__head">
+                    <span>#</span><span>Titulo</span><span>Artista</span><span>Album</span><span>Reproducciones</span><span></span>
+                </div>
+                <div class="pm-track" data-fila-busqueda data-texto="Adventure Juan Gabriel">
+                    <div class="pm-track__idx">
+                        <span class="pm-track__num">1</span>
+                        <span class="pm-track__play-ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span>
+                    </div>
+                    <div class="pm-track__main" data-play-uid="1" data-play-context="catalogo" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                        <img class="pm-track__art" src="resources/AlbumImages/album1.png" alt="">
+                        <span class="pm-track__text">
+                            <span class="pm-track__name">Adventure</span>
+                            <span class="pm-track__artist">Juan Gabriel</span>
+                        </span>
+                    </div>
+                    <div class="pm-track__album">Rock Album</div>
+                    <div class="pm-track__album pm-hidden">Rock Album</div>
+                    <div class="pm-track__plays">0</div>
+                    <div class="pm-track__actions">
+                        <button class="pm-ico-btn" type="button" title="Favoritos"
+                                onclick="PoliMusic.notificar('Pista agregada a tus favoritos.','ok');"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5 4.6 13A4 4 0 0 1 12 7.4 4 4 0 0 1 19.4 13L12 20.5Z"/></svg></button>
+                    </div>
+                </div>
+                <div class="pm-track" data-fila-busqueda data-texto="Dreams Juan Gabriel">
+                    <div class="pm-track__idx">
+                        <span class="pm-track__num">2</span>
+                        <span class="pm-track__play-ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span>
+                    </div>
+                    <div class="pm-track__main" data-play-uid="2" data-play-context="catalogo" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                        <img class="pm-track__art" src="resources/AlbumImages/album2.png" alt="">
+                        <span class="pm-track__text">
+                            <span class="pm-track__name">Dreams</span>
+                            <span class="pm-track__artist">Juan Gabriel</span>
+                        </span>
+                    </div>
+                    <div class="pm-track__album">Rock Album</div>
+                    <div class="pm-track__album pm-hidden">Rock Album</div>
+                    <div class="pm-track__plays">1</div>
+                    <div class="pm-track__actions">
+                        <button class="pm-ico-btn" type="button" title="Favoritos"
+                                onclick="PoliMusic.notificar('Pista agregada a tus favoritos.','ok');"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5 4.6 13A4 4 0 0 1 12 7.4 4 4 0 0 1 19.4 13L12 20.5Z"/></svg></button>
+                    </div>
+                </div>
+                <div class="pm-track" data-fila-busqueda data-texto="Energy Juan Gabriel">
+                    <div class="pm-track__idx">
+                        <span class="pm-track__num">3</span>
+                        <span class="pm-track__play-ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span>
+                    </div>
+                    <div class="pm-track__main" data-play-uid="3" data-play-context="catalogo" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                        <img class="pm-track__art" src="resources/AlbumImages/album3.png" alt="">
+                        <span class="pm-track__text">
+                            <span class="pm-track__name">Energy</span>
+                            <span class="pm-track__artist">Juan Gabriel</span>
+                        </span>
+                    </div>
+                    <div class="pm-track__album">Rock Album</div>
+                    <div class="pm-track__album pm-hidden">Rock Album</div>
+                    <div class="pm-track__plays">2</div>
+                    <div class="pm-track__actions">
+                        <button class="pm-ico-btn" type="button" title="Favoritos"
+                                onclick="PoliMusic.notificar('Pista agregada a tus favoritos.','ok');"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5 4.6 13A4 4 0 0 1 12 7.4 4 4 0 0 1 19.4 13L12 20.5Z"/></svg></button>
+                    </div>
+                </div>
+                <div class="pm-track" data-fila-busqueda data-texto="Scifi Juan Gabriel">
+                    <div class="pm-track__idx">
+                        <span class="pm-track__num">4</span>
+                        <span class="pm-track__play-ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span>
+                    </div>
+                    <div class="pm-track__main" data-play-uid="4" data-play-context="catalogo" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                        <img class="pm-track__art" src="resources/AlbumImages/album4.png" alt="">
+                        <span class="pm-track__text">
+                            <span class="pm-track__name">Scifi</span>
+                            <span class="pm-track__artist">Juan Gabriel</span>
+                        </span>
+                    </div>
+                    <div class="pm-track__album">Rock Album</div>
+                    <div class="pm-track__album pm-hidden">Rock Album</div>
+                    <div class="pm-track__plays">3</div>
+                    <div class="pm-track__actions">
+                        <button class="pm-ico-btn" type="button" title="Favoritos"
+                                onclick="PoliMusic.notificar('Pista agregada a tus favoritos.','ok');"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5 4.6 13A4 4 0 0 1 12 7.4 4 4 0 0 1 19.4 13L12 20.5Z"/></svg></button>
+                    </div>
+                </div>
+                <div class="pm-track" data-fila-busqueda data-texto="Tomorrow Juan Gabriel">
+                    <div class="pm-track__idx">
+                        <span class="pm-track__num">5</span>
+                        <span class="pm-track__play-ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span>
+                    </div>
+                    <div class="pm-track__main" data-play-uid="5" data-play-context="catalogo" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                        <img class="pm-track__art" src="resources/AlbumImages/album5.png" alt="">
+                        <span class="pm-track__text">
+                            <span class="pm-track__name">Tomorrow</span>
+                            <span class="pm-track__artist">Juan Gabriel</span>
+                        </span>
+                    </div>
+                    <div class="pm-track__album">Rock Album</div>
+                    <div class="pm-track__album pm-hidden">Rock Album</div>
+                    <div class="pm-track__plays">4</div>
+                    <div class="pm-track__actions">
+                        <button class="pm-ico-btn" type="button" title="Favoritos"
+                                onclick="PoliMusic.notificar('Pista agregada a tus favoritos.','ok');"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5 4.6 13A4 4 0 0 1 12 7.4 4 4 0 0 1 19.4 13L12 20.5Z"/></svg></button>
+                    </div>
+                </div>
+            </div>
+    </div>
+</section>
+
+<section class="pm-vista pm-hidden" id="vista-playlists" data-titulo="Playlists" data-subtitulo="Tus selecciones personales">
+    <div class="pm-section">
+        <div class="pm-section__head"><div><div class="pm-section__title">Playlists disponibles</div>
+        <div class="pm-section__sub">Vista completa del catalogo de playlists</div></div></div>
+        <div class="pm-grid pm-grid--wide">
+                <article class="pm-card" data-texto="Playlist 1 Privada">
+                    <div class="pm-card__art">
+                        <img src="resources/PlaylistImages/default.jpg" alt="Playlist 1" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="playlist" data-play-uid="1" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;PoliMusic&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;PoliMusic&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;PoliMusic&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;PoliMusic&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;5&quot;, &quot;nombre&quot;: &quot;Tomorrow&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;PoliMusic&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Playlist 1</div>
+                    <div class="pm-card__meta">5 pistas &middot; Privada<br>Creada el 12/12/2026</div>
+                    <span class="pm-card__tag">Playlist</span>
+                </article>
+                <article class="pm-card" data-texto="Playlist 2 Publica">
+                    <div class="pm-card__art">
+                        <img src="resources/PlaylistImages/playlist1.png" alt="Playlist 2" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="playlist" data-play-uid="2" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;PoliMusic&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;PoliMusic&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;3&quot;, &quot;nombre&quot;: &quot;Energy&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;PoliMusic&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;4&quot;, &quot;nombre&quot;: &quot;Scifi&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;PoliMusic&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Playlist 2</div>
+                    <div class="pm-card__meta">4 pistas &middot; Publica<br>Creada el 13/12/2026</div>
+                    <span class="pm-card__tag">Playlist</span>
+                </article>
+                <article class="pm-card" data-texto="Playlist 3 Publica">
+                    <div class="pm-card__art">
+                        <img src="resources/PlaylistImages/playlist2.png" alt="Playlist 3" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="playlist" data-play-uid="3" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;PoliMusic&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Playlist 3</div>
+                    <div class="pm-card__meta">1 pistas &middot; Publica<br>Creada el 14/12/2026</div>
+                    <span class="pm-card__tag">Playlist</span>
+                </article>
+                <article class="pm-card" data-texto="Playlist 4 Privada">
+                    <div class="pm-card__art">
+                        <img src="resources/PlaylistImages/playlist3.png" alt="Playlist 4" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="playlist" data-play-uid="4" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;PoliMusic&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}, {&quot;uid&quot;: &quot;2&quot;, &quot;nombre&quot;: &quot;Dreams&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;PoliMusic&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Playlist 4</div>
+                    <div class="pm-card__meta">2 pistas &middot; Privada<br>Creada el 15/12/2026</div>
+                    <span class="pm-card__tag">Playlist</span>
+                </article>
+                <article class="pm-card" data-texto="Playlist 5 Publica">
+                    <div class="pm-card__art">
+                        <img src="resources/PlaylistImages/playlist4.png" alt="Playlist 5" loading="lazy">
+                        <button class="pm-card__play" type="button" data-play-context="playlist" data-play-uid="5" data-play-json='[{&quot;uid&quot;: &quot;1&quot;, &quot;nombre&quot;: &quot;Adventure&quot;, &quot;artista&quot;: &quot;Juan Gabriel&quot;, &quot;album&quot;: &quot;PoliMusic&quot;, &quot;src&quot;: &quot;resources/SongFiles/bensound-adventure.mp3&quot;, &quot;img&quot;: &quot;resources/AlbumImages/album1.png&quot;}]'>
+                            <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                        </button>
+                    </div>
+                    <div class="pm-card__title">Playlist 5</div>
+                    <div class="pm-card__meta">1 pistas &middot; Publica<br>Creada el 16/12/2026</div>
+                    <span class="pm-card__tag">Playlist</span>
+                </article></div>
+    </div>
+</section>
+
+        </div>
+    </main>
+
+    <footer class="pm-player" id="pmPlayer">
+        <div class="pm-now">
+            <div class="pm-now__art">
+                <img id="pmNowArt" src="resources/AlbumImages/album1.png" alt="Sin reproduccion">
+                <div class="pm-eq" aria-hidden="true">
+                    <span class="pm-eq__bar"></span><span class="pm-eq__bar"></span><span class="pm-eq__bar"></span>
+                    <span class="pm-eq__bar"></span><span class="pm-eq__bar"></span>
+                </div>
+            </div>
+            <div class="pm-now__text">
+                <div class="pm-now__title" id="pmNowTitle">Sin reproduccion</div>
+                <div class="pm-now__artist" id="pmNowArtist">Seleccione una pista del catalogo</div>
+            </div>
+        </div>
+
+        <div class="pm-controls">
+            <div class="pm-controls__row">
+                <button class="pm-ctrl pm-ctrl--sm pm-ctrl--relative" id="pmBtnShuffle" type="button" title="Reproduccion aleatoria"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3h5v5"/><path d="M4 20 21 3"/><path d="M21 16v5h-5"/><path d="m15 15 6 6"/><path d="M4 4l5 5"/></svg></button>
+                <button class="pm-ctrl" id="pmBtnPrev" type="button" title="Pista anterior"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 5v14L8 12l11-7Z" fill="currentColor" stroke="none"/><path d="M5 5v14"/></svg></button>
+                <button class="pm-ctrl pm-ctrl--play" id="pmBtnPlay" type="button" title="Reproducir / Pausar">
+                    <span class="pm-ico-play"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15l13-7.5-13-7.5Z" fill="currentColor" stroke="none"/></svg></span><span class="pm-ico-pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5h3v14H8zM13 5h3v14h-3z" fill="currentColor" stroke="none"/></svg></span>
+                </button>
+                <button class="pm-ctrl" id="pmBtnNext" type="button" title="Pista siguiente"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 5v14l11-7L5 5Z" fill="currentColor" stroke="none"/><path d="M19 5v14"/></svg></button>
+                <button class="pm-ctrl pm-ctrl--sm pm-ctrl--relative" id="pmBtnRepeat" type="button" title="Activar repeticion">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="pm-progress">
+                <span class="pm-time" id="pmTimeActual">0:00</span>
+                <div class="pm-range" id="pmProgressRange" role="slider" tabindex="0" data-value="0">
+                    <div class="pm-range__track"><div class="pm-range__fill"></div><div class="pm-range__thumb"></div></div>
+                </div>
+                <span class="pm-time" id="pmTimeTotal">0:00</span>
+            </div>
+        </div>
+
+        <div class="pm-extras">
+            <button class="pm-ctrl" id="pmBtnMute" type="button" title="Silenciar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg></button>
+            <div class="pm-volume">
+                <div class="pm-range" id="pmVolumeRange" role="slider" tabindex="0" data-value="0.8">
+                    <div class="pm-range__track"><div class="pm-range__fill"></div><div class="pm-range__thumb"></div></div>
+                </div>
+            </div>
+        </div>
+        <audio id="pmAudio" preload="metadata"></audio>
+    </footer>
+</div>
+
+<div class="pm-toast-host" id="pmToastHost" aria-live="polite"></div>
+<script src="js/polimusic.js"></script>
+
+</body>
+</html>
