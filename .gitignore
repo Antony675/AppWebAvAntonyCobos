@@ -7,3 +7,5 @@ bin
 obj
 *.csproj.user
 .vs
+/webapppolimusicv1_asp/packages
+/PoliMusicV3/packages
